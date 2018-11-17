@@ -21,3 +21,13 @@ $router->group(['prefix' => 'auth'], function () use ($router) {
     $router->post('me', 'AuthController@me');
 
 });
+
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1', [
+    'namespace' => 'App\Http\Controllers',
+],function ($api) {
+    $api->get('test', function () {
+        return 'hello world';
+    });
+});
